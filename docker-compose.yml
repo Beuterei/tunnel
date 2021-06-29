@@ -3,6 +3,8 @@ services:
   tunnel:
     build:
       context: .
+      args:
+        USE_HTPASSWD: ${USE_HTPASSWD-true}
 
     container_name: tunnel
 
@@ -22,7 +24,7 @@ services:
       - nginxproxynet
 
     volumes:
-        - tunnelData:/etc/ssh
+      - tunnelData:/etc/ssh
 
 volumes:
   tunnelData:
